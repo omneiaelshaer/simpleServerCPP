@@ -1,0 +1,3 @@
+/Users/omniaelshaer/AndroidStudioProjects/SimpleServerCpp/app/.cxx/Debug/9j4x3c1f/x86_64/CMakeFiles/simpleservercpp.dir
+/Users/omniaelshaer/AndroidStudioProjects/SimpleServerCpp/app/.cxx/Debug/9j4x3c1f/x86_64/CMakeFiles/edit_cache.dir
+/Users/omniaelshaer/AndroidStudioProjects/SimpleServerCpp/app/.cxx/Debug/9j4x3c1f/x86_64/CMakeFiles/rebuild_cache.dir

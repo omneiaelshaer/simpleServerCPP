@@ -1,0 +1,23 @@
+# ninja log v5
+0	330	1738963974058058566	CMakeFiles/simpleservercpp.dir/native-lib.cpp.o	3ac4a678ffbe00ed
+331	383	1738963974110788363	/Users/omniaelshaer/AndroidStudioProjects/SimpleServerCpp/app/build/intermediates/cxx/Debug/9j4x3c1f/obj/arm64-v8a/libsimpleservercpp.so	bff19c85f8e5ad6d
+2	213	1738964330168478431	CMakeFiles/simpleservercpp.dir/native-lib.cpp.o	3ac4a678ffbe00ed
+214	252	1738964330207052258	/Users/omniaelshaer/AndroidStudioProjects/SimpleServerCpp/app/build/intermediates/cxx/Debug/9j4x3c1f/obj/arm64-v8a/libsimpleservercpp.so	bff19c85f8e5ad6d
+2	206	1738964348093800965	CMakeFiles/simpleservercpp.dir/native-lib.cpp.o	3ac4a678ffbe00ed
+206	245	1738964348133493303	/Users/omniaelshaer/AndroidStudioProjects/SimpleServerCpp/app/build/intermediates/cxx/Debug/9j4x3c1f/obj/arm64-v8a/libsimpleservercpp.so	bff19c85f8e5ad6d
+1	204	1738965336789846956	CMakeFiles/simpleservercpp.dir/native-lib.cpp.o	3ac4a678ffbe00ed
+204	238	1738965336825275962	/Users/omniaelshaer/AndroidStudioProjects/SimpleServerCpp/app/build/intermediates/cxx/Debug/9j4x3c1f/obj/arm64-v8a/libsimpleservercpp.so	bff19c85f8e5ad6d
+2	305	1738965758222259304	CMakeFiles/simpleservercpp.dir/native-lib.cpp.o	3ac4a678ffbe00ed
+305	405	1738965758324346947	/Users/omniaelshaer/AndroidStudioProjects/SimpleServerCpp/app/build/intermediates/cxx/Debug/9j4x3c1f/obj/arm64-v8a/libsimpleservercpp.so	bff19c85f8e5ad6d
+2	215	1738966171137126725	CMakeFiles/simpleservercpp.dir/native-lib.cpp.o	3ac4a678ffbe00ed
+215	256	1738966171179020959	/Users/omniaelshaer/AndroidStudioProjects/SimpleServerCpp/app/build/intermediates/cxx/Debug/9j4x3c1f/obj/arm64-v8a/libsimpleservercpp.so	bff19c85f8e5ad6d
+2	202	1738967010664533457	CMakeFiles/simpleservercpp.dir/native-lib.cpp.o	3ac4a678ffbe00ed
+202	236	1738967010699808670	/Users/omniaelshaer/AndroidStudioProjects/SimpleServerCpp/app/build/intermediates/cxx/Debug/9j4x3c1f/obj/arm64-v8a/libsimpleservercpp.so	bff19c85f8e5ad6d
+2	195	1738967226916327432	CMakeFiles/simpleservercpp.dir/native-lib.cpp.o	3ac4a678ffbe00ed
+195	229	1738967226951520852	/Users/omniaelshaer/AndroidStudioProjects/SimpleServerCpp/app/build/intermediates/cxx/Debug/9j4x3c1f/obj/arm64-v8a/libsimpleservercpp.so	bff19c85f8e5ad6d
+2	204	1738967375686357503	CMakeFiles/simpleservercpp.dir/native-lib.cpp.o	3ac4a678ffbe00ed
+204	239	1738967375722127637	/Users/omniaelshaer/AndroidStudioProjects/SimpleServerCpp/app/build/intermediates/cxx/Debug/9j4x3c1f/obj/arm64-v8a/libsimpleservercpp.so	bff19c85f8e5ad6d
+1	192	1738967657781671128	CMakeFiles/simpleservercpp.dir/native-lib.cpp.o	3ac4a678ffbe00ed
+192	232	1738967657822740354	/Users/omniaelshaer/AndroidStudioProjects/SimpleServerCpp/app/build/intermediates/cxx/Debug/9j4x3c1f/obj/arm64-v8a/libsimpleservercpp.so	bff19c85f8e5ad6d
+2	210	1738967733718327775	CMakeFiles/simpleservercpp.dir/native-lib.cpp.o	3ac4a678ffbe00ed
+210	245	1738967733754288828	/Users/omniaelshaer/AndroidStudioProjects/SimpleServerCpp/app/build/intermediates/cxx/Debug/9j4x3c1f/obj/arm64-v8a/libsimpleservercpp.so	bff19c85f8e5ad6d
