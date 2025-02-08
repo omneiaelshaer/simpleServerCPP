@@ -2,12 +2,14 @@ package com.example.simpleservercpp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import com.example.simpleservercpp.databinding.ActivityMainBinding;
 
+import android.os.Handler;
 public class MainActivity extends AppCompatActivity {
 
     private BLEServer bleServer;
@@ -16,15 +18,18 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // Initialize UI components
-        TextView connectionStatus = findViewById(R.id.connection_status);
-        TextView clientState = findViewById(R.id.client_state);
-        EditText receivedDataField = findViewById(R.id.received_data);
-        EditText inputField = findViewById(R.id.input_field);
-        Button sendButton = findViewById(R.id.send_button);
-        Button advertisingButton = findViewById(R.id.advertising_button);
+
         // Initialize BLE Server
-        bleServer = new BLEServer(this, connectionStatus, clientState, receivedDataField, inputField, sendButton, advertisingButton);
+        bleServer = new BLEServer(this);
+
+//        Intent serviceIntent = new Intent(this, MyBackgroundService.class);
+//        startService(serviceIntent);
+
+        // Delay a bit to ensure the service starts properly (optional)
+        new Handler().postDelayed(() -> {
+            // Minimize the app
+            moveTaskToBack(true); // Moves app to the background
+        }, 500);
 
     }
 

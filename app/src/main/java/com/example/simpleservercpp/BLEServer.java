@@ -10,9 +10,6 @@ import android.content.pm.PackageManager;
 import android.os.Handler;
 import android.os.ParcelUuid;
 import android.util.Log;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -38,25 +35,14 @@ public class BLEServer {
     private BluetoothGattCharacteristic characteristic;
     private final BluetoothLeAdvertiser advertiser;
     private final Context context;
-    private final TextView connectionStatus;
-    private final TextView clientState;
-    private final EditText receivedDataField;
-    private final EditText inputField;
-    private final Button sendButton;
-    private final Button advertisingButton;
+
     private volatile boolean isAdvertising = false;
     private final Handler handler;
 
-    public BLEServer(Context context, TextView connectionStatus, TextView clientState, EditText receivedDataField, EditText inputField, Button sendButton, Button advertisingButton) {
+    public BLEServer(Context context) {
         this.context = context;
-        this.connectionStatus = connectionStatus;
-        this.clientState = clientState;
-        this.receivedDataField = receivedDataField;
-        this.inputField = inputField;
-        this.sendButton = sendButton;
-        this.advertisingButton = advertisingButton;
+
         this.handler = new Handler();
-        context = context;
         bluetoothManager = (BluetoothManager) context.getSystemService(Context.BLUETOOTH_SERVICE);
         bluetoothAdapter = bluetoothManager.getAdapter();
         if (ActivityCompat.checkSelfPermission(context, Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
@@ -67,14 +53,13 @@ public class BLEServer {
         if (!bluetoothAdapter.isMultipleAdvertisementSupported()) {
             Log.e(TAG, "BLE advertising is not supported on this device.");
             updateConnectionStatus("BLE advertising not supported");
-            advertisingButton.setEnabled(false);
             return;
         }
 
         requestPermissions();
         startServer();
 
-        setupUI();
+        startAdvertising();
         initUdp();
     }
 
@@ -185,24 +170,7 @@ public class BLEServer {
         gattServer.addService(service);
     }
 
-    private void setupUI() {
-        sendButton.setOnClickListener(v -> {
-            String dataToSend = inputField.getText().toString();
-            if (!dataToSend.isEmpty()) {
-                sendData(dataToSend);
-            } else {
-                Log.e(TAG, "Input field is empty.");
-            }
-        });
 
-        advertisingButton.setOnClickListener(v -> {
-            if (isAdvertising) {
-                stopAdvertising();
-            } else {
-                startAdvertising();
-            }
-        });
-    }
 
     private void startAdvertising() {
         AdvertiseSettings settings = new AdvertiseSettings.Builder()
@@ -227,7 +195,6 @@ public class BLEServer {
                 Log.d(TAG, "Advertising started successfully.");
                 updateConnectionStatus("Advertising started");
                 isAdvertising = true;
-                advertisingButton.setText("Stop Advertising");
             }
 
             @Override
@@ -236,7 +203,6 @@ public class BLEServer {
                 Log.e(TAG, "Advertising failed with error code: " + errorCode);
                 updateConnectionStatus("Advertising failed");
                 isAdvertising = false;
-                advertisingButton.setText("Start Advertising");
             }
         });
     }
@@ -258,7 +224,6 @@ public class BLEServer {
                 Log.d(TAG, "Advertising stopped successfully.");
                 updateConnectionStatus("Advertising stopped");
                 isAdvertising = false;
-                advertisingButton.setText("Start Advertising");
             }
 
             @Override
@@ -290,25 +255,17 @@ public class BLEServer {
         for (byte b : value) {
             hexString.append(String.format("%02X ", b)); // Converts byte to two-digit hex
         }
-
         Log.d(TAG, "Received data (bytes): " + hexString.toString().trim());
-
-        receivedDataField.post(() -> receivedDataField.setText(hexString.toString().trim()));
 
         //this function should be called in Ble receiption call back
         sendOverUdp(value);
     }
 
     private void updateConnectionStatus(String status) {
-        if (connectionStatus != null) {
-            connectionStatus.post(() -> connectionStatus.setText(status));
-        }
     }
 
     private void updateClientState(String state) {
-        if (clientState != null) {
-            clientState.post(() -> clientState.setText("Client State: " + state));
-        }
+
     }
 
 
