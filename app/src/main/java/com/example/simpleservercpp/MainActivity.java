@@ -12,18 +12,15 @@ import com.example.simpleservercpp.databinding.ActivityMainBinding;
 import android.os.Handler;
 public class MainActivity extends AppCompatActivity {
 
-    private BLEServer bleServer;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Initialize BLE Server
-        bleServer = new BLEServer(this);
 
-//        Intent serviceIntent = new Intent(this, MyBackgroundService.class);
-//        startService(serviceIntent);
+        Intent serviceIntent = new Intent(this, MyBackgroundService.class);
+        serviceIntent.setAction(android.provider.Settings.ACTION_IGNORE_BATTERY_OPTIMIZATION_SETTINGS);
+        startForegroundService(serviceIntent);
 
         // Delay a bit to ensure the service starts properly (optional)
         new Handler().postDelayed(() -> {
@@ -36,11 +33,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        Intent stopIntent = new Intent(this, MyBackgroundService.class);
+        stopService(stopIntent);
 
-        if (bleServer != null) {
-//            bleServer.stopAdvertising();
-            bleServer = null;
-        }
     }
 
     /**

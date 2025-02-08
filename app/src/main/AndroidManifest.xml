@@ -12,6 +12,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE"/>
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE"/>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -32,7 +34,7 @@
             </intent-filter>
         </activity>
 
-<!--        <service android:name=".MyBackgroundService"></service>-->
+        <service android:name=".MyBackgroundService" android:foregroundServiceType="connectedDevice" android:exported="false"></service>
     </application>
 
 </manifest>
